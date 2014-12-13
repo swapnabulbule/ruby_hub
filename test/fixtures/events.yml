@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  subject: MyString
+  edate: 2014-12-13
+  venue: MyString
+  organizer: MyString
+  sponsers: MyString
+
+two:
+  type: 
+  subject: MyString
+  edate: 2014-12-13
+  venue: MyString
+  organizer: MyString
+  sponsers: MyString

@@ -1,0 +1,575 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-13 14:35:20 +0530
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.1) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/swapna/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/swapna/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/swapna/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
+  [1m[36m (162.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (211.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEvents (20141213090244)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "subject" varchar(255), "edate" date, "venue" varchar(255), "organizer" varchar(255), "sponsers" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141213090244"]]
+  [1m[35m (164.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM schema_migrations[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-13 14:46:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/railties-4.1.1/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 34ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2014-12-13 14:46:53 +0530
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.8ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 1071ms (Views: 1068.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 14:46:55 +0530
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 14:47:00 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (86.6ms)
+  Rendered events/new.html.erb within layouts/application (90.9ms)
+Completed 200 OK in 155ms (Views: 150.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (32.3ms)
+  Rendered events/new.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 14:49:38 +0530
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 14:57:39 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (16.4ms)
+  Rendered events/new.html.erb within layouts/application (17.3ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `text_select' for #<ActionView::Helpers::FormBuilder:0xa7d8660>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.text_select:type %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_88037820'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_88037820'
+  app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___701984724_74925200'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.6ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 14:58:05 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (13.3ms)
+  Rendered events/new.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `text_select' for #<ActionView::Helpers::FormBuilder:0xa0029b8>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.text_select:type %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_84022780'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_84022780'
+  app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___701984724_74925200'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:10:55 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (8.8ms)
+  Rendered events/new.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (wrong number of arguments (1 for 4..6)):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.collection_select(Event.types) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_90672310'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_90672310'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:12:10 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (15.1ms)
+  Rendered events/new.html.erb within layouts/application (16.8ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined local variable or method `types' for #<#<Class:0xacfa3c8>:0xaaf1810>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.collection_select(Event:types) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_89609690'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_89609690'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:14:19 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (3.4ms)
+  Rendered events/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `merge' for ["Conference", "meetups", "Workshops"]:Array):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select("event","type",Event.types) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_88627760'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_88627760'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:14:50 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (3.3ms)
+  Rendered events/new.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `types' for :Event:Symbol):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select("event","type",:Event.types) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_83504810'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_83504810'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:15:13 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (3.1ms)
+  Rendered events/new.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `merge' for ["Conference", "meetups", "Workshops"]:Array):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select("event","type",Event.types) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_82971360'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_82971360'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.4ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:23:20 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (14.4ms)
+  Rendered events/new.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined local variable or method `option_for_select' for #<#<Class:0xacfa3c8>:0xad93e10>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= select_tag "type",option_for_select[['conference','conference'],['workshops','workshops'],['meetups','meetups']] %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_90997420'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_90997420'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.5ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:23:52 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (13.9ms)
+  Rendered events/new.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined local variable or method `option_for_select' for #<#<Class:0xacfa3c8>:0xab20b74>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select_tag "type",option_for_select[['conference','conference'],['workshops','workshops'],['meetups','meetups']] %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_89714900'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_89714900'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:24:24 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (3.2ms)
+  Rendered events/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1..2)):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select_tag "type",options_for_select[['conference','conference'],['workshops','workshops'],['meetups','meetups']] %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_88988780'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_88988780'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:25:44 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (12.9ms)
+  Rendered events/new.html.erb within layouts/application (14.5ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `select_tag' for #<ActionView::Helpers::FormBuilder:0xa748b3c>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %><br>
+    16:     <%= f.select_tag "type",options_for_select([['conference','conference'],['workshops','workshops'],['meetups','meetups']]) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :subject %><br>
+  app/views/events/_form.html.erb:16:in `block in _app_views_events__form_html_erb___70985235_87728050'
+  app/views/events/_form.html.erb:1:in `_app_views_events__form_html_erb___70985235_87728050'
+  app/views/events/new.html.erb:4:in `_app_views_events_new_html_erb___701984724_90688060'
+
+
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/swapna/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (9.0ms)
+  Rendered events/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 72ms (Views: 70.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 15:26:01 +0530
+
+
+Started POST "/events" for 127.0.0.1 at 2014-12-13 15:34:36 +0530
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jGQfZbLyfpN+bMbkJE+6neVE+FVC78ANb5H7Fjsd35w=", "type"=>"conference", "event"=>{"subject"=>"hi", "edate(1i)"=>"2014", "edate(2i)"=>"12", "edate(3i)"=>"13", "venue"=>"hi", "organizer"=>"hi", "sponsers"=>"hi"}, "commit"=>"Create Event"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("created_at", "edate", "organizer", "sponsers", "subject", "updated_at", "venue") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-12-13 10:04:36.497651"], ["edate", "2014-12-13"], ["organizer", "hi"], ["sponsers", "hi"], ["subject", "hi"], ["updated_at", "2014-12-13 10:04:36.497651"], ["venue", "hi"]]
+  [1m[36m (457.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 582ms (ActiveRecord: 458.0ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered events/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 60ms (Views: 57.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:37 +0530
+
+
+Started GET "/events" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 63.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 15:34:43 +0530
+
+
+Started DELETE "/events/1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+Processing by EventsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jGQfZbLyfpN+bMbkJE+6neVE+FVC78ANb5H7Fjsd35w=", "id"=>"1"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = ?  [["id", 1]]
+  [1m[36m (254.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/events
+Completed 302 Found in 259ms (ActiveRecord: 255.4ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:23 +0530
+
+
+Started GET "/events" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 15:37:27 +0530
